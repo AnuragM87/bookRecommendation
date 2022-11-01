@@ -7,38 +7,38 @@ var dataBase = {
     {
       Name: "Wings of fire",
       Author: "Arun Tiwari",
-      Rating: "4.5/5"
-    }
+      Rating: "4.5/5",
+    },
   ],
 
-  premChandra: [
+  HindiNovel: [
     {
       Name: "Godaan",
       Author: "premChandra",
-      Rating: "4.8/5"
+      Rating: "4.8/5",
     },
-    { Name: "Rangbhumi", Author: "premChandra", Rating: "4/5" }
+    { Name: "Rangbhumi", Author: "premChandra", Rating: "4/5" },
   ],
 
   Scifi: [
     {
       Name: "Future Of Humanity",
       Author: "Michio Kaku",
-      Rating: "4.9/5"
+      Rating: "4.9/5",
     },
     {
       Name: "The God Equation: The Quest for a Theory of Everything",
       Author: "Michio Kaku",
-      Rating: "4.9/5"
-    }
-  ]
+      Rating: "4.9/5",
+    },
+  ],
 };
 
 export default function App() {
-  const [lang, setLang] = useState("premChandra");
+  const [userBook, setBook] = useState("HindiNovel");
 
-  function genreClickHandler(language) {
-    setLang(language);
+  function bookClickHandler(event) {
+    setBook(event);
   }
 
   return (
@@ -48,9 +48,9 @@ export default function App() {
       </div>
 
       <div>
-        {Object.keys(dataBase).map((language) => (
-          <button class="bookbtn" onClick={() => genreClickHandler(language)}>
-            {language}
+        {Object.keys(dataBase).map((event) => (
+          <button class="bookbtn" onClick={() => bookClickHandler(event)}>
+            {event}
           </button>
         ))}
       </div>
@@ -58,7 +58,7 @@ export default function App() {
 
       <div>
         <ol>
-          {dataBase[lang].map((book) => (
+          {dataBase[userBook].map((book) => (
             <li key={book.name}>
               <div style={{ height: "5rem", width: "40rem" }}>
                 Name: '{book.Name}' Authour: '{book.Author}' Rating: '
